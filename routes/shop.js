@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   
   res.render('shop', {
     prods: products,
-    docTitle: 'Shop',
+    pageTitle: 'Shop',
     path: '/'
   });
 });
