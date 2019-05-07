@@ -1,13 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  padding: 1rem;
+  margin: auto;
 }
 
 .main-header {
   width: 100%;
   height: 3.5rem;
-  background-color: #f7b87c;
+  background-color: #00695c;
   padding: 0 1.5rem;
 }
 
@@ -18,70 +29,80 @@ body {
 }
 
 .main-header__item-list {
-  display: flex;
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
+  display: flex;
 }
 
 .main-header__item {
+  margin: 0 1rem;
   padding: 0;
-  margin: 0;
-}
-
-.main-header__item:not(:first-child) {
-  margin-left: 1rem;
 }
 
 .main-header__item a {
-  color: #000000;
   text-decoration: none;
-  transition: all 0.2s;
+  color: white;
 }
 
-.main-header__item a.active,
+.main-header__item a:hover,
 .main-header__item a:active,
-.main-header__item a:hover {
-  color: #a040bf;
+.main-header__item a.active {
+  color: #ffeb3b;
 }
 
-main {
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.card__header,
+.card__content {
   padding: 1rem;
 }
 
-.product-form {
-  width: 20rem;
-  max-width: 90%;
-  margin: 0 auto;
+.card__header h1,
+.card__content h1,
+.card__content h2,
+.card__content p {
+  margin: 0;
 }
 
-.form-control {
-  margin: 1rem 0;
-}
-
-.form-control label,
-.form-control input {
-  display: block;
+.card__image {
   width: 100%;
 }
 
-.form-control input {
-  border: 1px solid #f7b87c;
-  font: inherit;
-  border-radius: 3px;
+.card__image img {
+  width: 100%;
 }
 
-button {
-  border: 1px solid #a040bf;
+.card__actions {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card__actions button,
+.card__actions a {
+    margin: 0 0.25rem;
+}
+
+.btn {
   font: inherit;
+  border: 1px solid #00695c;
+  color: #00695c;
+  background: white;
   border-radius: 3px;
-  color: #a040bf;
   cursor: pointer;
-  transition: all 0.2s;
 }
 
-button:hover,
-button:hover {
-  border-color: #f7b87c;
-  color: #f7b87c;
+.btn:hover,
+.btn:active {
+  background-color: #00695c;
+  color: white;
 }
