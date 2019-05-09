@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/error');
 const mongoConnect = require('./util/database').mongoConnect;
+const User = require('./models/user');
 
 const app = express();
 
@@ -18,12 +19,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  /*User.findOne({where: {id: 1}})
+  User.findById('5cd40b60ae0f6c39aa3ab115')
     .then((user) => {
       req.user = user;
       next();
     })
-    .catch(err => console.log(err))*/
+    .catch(err => console.log(err));
   next()
 });
 
