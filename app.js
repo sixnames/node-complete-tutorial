@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  User.findById('5cd43e69309cef416ee4d206')
+  User.findById('5bab316ce0a7c75f783cb8a8')
     .then(user => {
       req.user = user;
       next();
@@ -34,26 +34,21 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    'mongodb+srv://admin:rBSBbD9uhqVC3!b@cluster0-nb3qo.mongodb.net/shop?retryWrites=true'
+    'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/shop?retryWrites=true'
   )
   .then(result => {
-    User.findOne()
-      .then(user => {
-        if (!user) {
-          const user = new User({
-            name: 'Max',
-            email: 'max@test.com',
-            cart: {
-              items: []
-            }
-          });
-          user.save();
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    
+    User.findOne().then(user => {
+      if (!user) {
+        const user = new User({
+          name: 'Max',
+          email: 'max@test.com',
+          cart: {
+            items: []
+          }
+        });
+        user.save();
+      }
+    });
     app.listen(3000);
   })
   .catch(err => {
