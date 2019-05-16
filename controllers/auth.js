@@ -32,9 +32,9 @@ exports.getSignup = (req, res, next) => {
 };
 
 exports.postLogin = (req, res, next) => {
-  const { email, password} = req.body;
+  const { email, password } = req.body;
   
-  User.findOne({email: email})
+  User.findOne({ email: email })
     .then(user => {
       if (!user) {
         req.flash('error', 'Invalid email or password.');
@@ -51,7 +51,7 @@ exports.postLogin = (req, res, next) => {
               res.redirect('/');
             });
           }
-  
+          
           req.flash('error', 'Invalid email or password.');
           res.redirect('/login');
         })
@@ -66,7 +66,7 @@ exports.postLogin = (req, res, next) => {
 exports.postSignup = (req, res, next) => {
   const { email, password, confirmPassword } = req.body;
   
-  User.findOne({email: email})
+  User.findOne({ email: email })
     .then((userDoc) => {
       if (userDoc) {
         req.flash('error', 'Email exists.');
@@ -80,7 +80,7 @@ exports.postSignup = (req, res, next) => {
             password: hashedPassword,
             cart: { items: [] }
           });
-    
+          
           return user.save();
         })
         .then((result) => {
